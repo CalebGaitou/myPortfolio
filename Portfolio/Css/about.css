@@ -1,0 +1,157 @@
+.backLink {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+}
+
+.backLink:hover {
+    color: var(--accentColor);
+}
+
+.aboutPage {
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutCenter {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.aboutCard {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background: var(--glassBg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glassBorder);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 760px;
+    width: 100%;
+}
+
+.avatar {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--accentColor);
+    object-fit: cover;
+}
+
+.aboutText {
+    flex: 1;
+    min-width: 240px;
+}
+
+.aboutText h1 {
+    margin: 0 0 4px 0;
+}
+
+.tagline {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    margin: 0 0 20px 0;
+}
+
+.bio {
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.aboutText h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 12px;
+}
+
+.resumeEntry {
+    margin-bottom: 16px;
+}
+
+.resumeEntry:last-of-type {
+    margin-bottom: 30px;
+}
+
+.resumeHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.resumeTitle {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.resumeDate {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    white-space: nowrap;
+}
+
+.resumeSubtitle {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 2px 0 8px 0;
+}
+
+.resumeBullets {
+    margin: 0 0 30px 0;
+    padding-left: 18px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.resumeEntry .resumeBullets {
+    margin-bottom: 0;
+}
+
+.skillsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.skillsList li {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glassBorder);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 13px;
+}
+
+.contactList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contactList a {
+    color: var(--accentColor);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.contactList a:hover {
+    text-decoration: underline;
+}

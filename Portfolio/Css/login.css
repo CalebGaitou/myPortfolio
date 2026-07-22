@@ -1,0 +1,162 @@
+body.appleDark {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bgMain);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica;
+    color: var(--textColor);
+}
+
+/* Glass Container for the Form */
+.loginContainer {
+    background: var(--glassBg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid var(--glassBorder);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 320px;
+}
+
+.form p {
+    margin-bottom: 20px;
+}
+
+.form label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glassBorder);
+    border-radius: 6px;
+    color: white;
+    box-sizing: border-box; /* Prevents input from spilling out */
+}
+
+/* THE BUTTON */
+#submit {
+    width: 100%;
+    padding: 12px;
+    background: var(--accentColor);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+}
+
+#submit:hover {
+    background: rgb(220, 70, 105);
+    box-shadow: 0 0 15px rgba(198, 63, 95, 0.4);
+}
+
+#submit:active {
+    transform: scale(0.98);
+}
+
+/* Shared styling for top-bar alerts */
+.success, .error {
+    position: fixed; /* Pins it to the screen */
+    top: 0;
+    left: 0;
+    width: 100%; /* Spans the full width */
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 1000; /* Keeps it above everything else */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    animation: slideDown 0.5s ease;
+}
+
+.success {
+    background-color: rgb(198, 63, 95);
+    color: white;
+}
+
+.error {
+    background-color: rgb(26, 1, 1);
+    color: white;
+}
+
+/* Smooth entry from the top */
+@keyframes slideDown {
+    from { 
+        transform: translateY(-100%); 
+    }
+    to { 
+        transform: translateY(0); 
+    }
+}
+
+/* WELCOME / INFO TEXT */
+.welcom,
+.school,
+.copyRight {
+    text-align: center;
+}
+
+.welcom {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.school {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.copyRight {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* THE SIGN UP LINK */
+.signupLink {
+    margin-top: 25px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.signupLink a {
+    color: var(--accentColor);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.signupLink a:hover {
+    text-decoration: underline;
+}
+
+.visit {
+    margin-top: 25px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.visit a {
+    color: var(--accentColor);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.visit a:hover {
+    text-decoration: underline;
+}

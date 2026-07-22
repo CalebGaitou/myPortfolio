@@ -1,0 +1,7 @@
+:root {
+    --bgMain: radial-gradient(at top left, #25161a, #121212);
+    --glassBg: rgba(255, 255, 255, 0.03);
+    --glassBorder: rgba(255, 255, 255, 0.1);
+    --accentColor: rgb(198, 63, 95);
+    --textColor: #ffffff;
+}

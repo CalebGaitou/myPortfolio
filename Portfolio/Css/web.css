@@ -1,0 +1,355 @@
+/* ─── BASE ─────────────────────────────────────────────── */
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica;
+    background: var(--bgMain);
+    color: var(--textColor);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+/* Top nav (.topNav, .navLeft, etc.) now lives in Css/header.css,
+   loaded alongside header.php wherever the shared header is included. */
+
+/* ─── LAYOUT ────────────────────────────────────────────── */
+
+.mainContainer {
+    display: flex;
+    flex: 1;
+    overflow-y: hidden;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────── */
+
+@media (max-width: 800px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .mainContainer {
+        flex-direction: column;
+        overflow: visible;
+    }
+
+    .sidebar {
+        width: auto;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}
+
+/* ─── SIDEBAR ───────────────────────────────────────────── */
+
+.sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    background: var(--glassBg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    margin: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--glassBorder);
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.sidebar h3 {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 15px;
+    padding-left: 5px;
+}
+
+.sidebar ul {
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    list-style: none;
+}
+
+.sidebar li a,
+summary {
+    color: var(--accentColor);
+    text-decoration: none;
+    display: block;
+    padding: 8px 5px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+}
+
+summary a {
+    cursor: pointer;
+    outline: none;
+    font-style: italic;
+    font-weight: bold;
+}
+
+summary::-webkit-details-marker {
+    color: var(--accentColor);
+}
+
+.sidebar li a:hover,
+summary:hover {
+    background: rgba(198, 63, 95, 0.1);
+    color: white;
+}
+
+details ul {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+details ul li a {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.moduleMessage {
+    padding-left: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* ─── CARDS ─────────────────────────────────────────────── */
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(4px);
+    min-height: 90px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding: 20px;
+    border: 1px solid var(--glassBorder);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(198, 63, 95, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cardTitle {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.cardMeta {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.libraryIntro {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 640px;
+    margin: -6px 0 24px 0;
+}
+
+/* ─── PERMISSIONS TABLE ─────────────────────────────────── */
+
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.editPermissions {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    table-layout: fixed;
+    min-width: 600px;
+}
+
+.editPermissions th {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgb(255, 255, 255);
+    padding: 14px;
+    font-weight: 500;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.editPermissions td {
+    padding: 16px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.allCells {
+    text-align: center;
+}
+
+/* ─── FILES TABLE ───────────────────────────────────────── */
+/* Separate from .editPermissions because that class hardcodes
+   nth-child width percentages for exactly 6 columns. */
+
+.filesTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    min-width: 700px;
+}
+
+.filesTable th {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgb(255, 255, 255);
+    padding: 14px;
+    font-weight: 500;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+}
+
+.filesTable td {
+    padding: 16px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9em;
+}
+
+.editPermissions th:nth-child(1),
+.editPermissions td:nth-child(1) { width: 14%; }
+
+.editPermissions th:nth-child(2),
+.editPermissions td:nth-child(2) { width: 24%; }
+
+.editPermissions th:nth-child(3),
+.editPermissions td:nth-child(3) { width: 12%; }
+
+.editPermissions th:nth-child(4),
+.editPermissions td:nth-child(4) { width: 24%; }
+
+.editPermissions th:nth-child(5),
+.editPermissions td:nth-child(5) { width: 10%; }
+
+.editPermissions th:nth-child(6),
+.editPermissions td:nth-child(6) { width: 16%; }
+
+.editActionsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    max-width: 100%;
+}
+
+.editPermissions select {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.editPermissions select:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ─── BUTTONS ───────────────────────────────────────────── */
+
+.saveBtn {
+    background: rgba(255, 255, 255, 0.9);
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.saveBtn:hover {
+    background: rgb(255, 255, 255);
+    transform: scale(1.03);
+}
+
+.deleteBtn {
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    color: rgb(255, 69, 96);
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.deleteBtn:hover {
+    background: rgba(255, 69, 96, 0.1);
+}
