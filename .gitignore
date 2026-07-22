@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# PHP dependencies
+/vendor/
+composer.phar
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+config.local.php
+
+# Logs & caches
+*.log
+/cache/
+/tmp/
+error_log
+
+# PHP build/tooling
+.php-cs-fixer.cache
+.phpunit.result.cache
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude
+.claude/
+CLAUDE.local.md
