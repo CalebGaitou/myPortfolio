@@ -21,9 +21,16 @@
         exit('Invalid request.');
     }
 
-    $allowedRedirects = ['web.php', 'year1.php', 'year2.php'];
-    $redirect = $_POST['redirect'] ?? 'web.php';
-    if (!in_array($redirect, $allowedRedirects, true)) {
+    $allowedRedirectPages = ['web.php', 'year.php'];
+    $redirectPage = $_POST['redirect'] ?? 'web.php';
+    if (!in_array($redirectPage, $allowedRedirectPages, true)) {
+        $redirectPage = 'web.php';
+    }
+
+    if ($redirectPage === 'year.php') {
+        $redirectYear = filter_input(INPUT_POST, 'redirectYear', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1, 'max_range' => 4]]);
+        $redirect = $redirectYear ? "year.php?y={$redirectYear}" : 'web.php';
+    } else {
         $redirect = 'web.php';
     }
 
@@ -56,7 +63,8 @@
             }
         } catch (Exception $ex) {
             error_log($ex->getMessage());
-            header("Location: $redirect?error=1");
+            $errorRedirect = $redirect . (str_contains($redirect, '?') ? '&' : '?') . 'error=1';
+            header("Location: $errorRedirect");
             exit();
         }
     }
