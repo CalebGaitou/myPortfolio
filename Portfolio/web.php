@@ -49,23 +49,27 @@
                             echo '<li><a href="manageModules.php">Manage Modules</a></li>';
                         }
                     ?>
+                    <li><a href="calendar.php">Calendar</a></li>
                     <li><a href="about.php">About Me</a></li>
                 </ul>
                 
                 <h3>Modules</h3>
-                <?php 
+                <?php
                     if($role === 'admin' || $role === 'visitor'){
-                        echo '<div class="moduleDetails">
-                            <summary class="moduleSummary">
-                                <p><a href="./year1.php">Year 1</a></p>
-                            </summary>   
-                        </div>
-
-                        <div class="moduleDetails"> 
-                            <summary class="moduleSummary">
-                                <p><a href="./year1.php">Year 2</a></p>
-                            </summary> 
-                        </div>'; 
+                        include("dbHandler.php");
+                        /** @var PDO|null $dbHandler */
+                        $availableYears = [];
+                        if ($dbHandler) {
+                            $yearsStmt = $dbHandler->query("SELECT DISTINCT `yearNumber` FROM `categories` WHERE `yearNumber` IS NOT NULL ORDER BY `yearNumber`;");
+                            $availableYears = $yearsStmt->fetchAll(PDO::FETCH_COLUMN);
+                        }
+                        foreach ($availableYears as $availableYear) {
+                            echo '<div class="moduleDetails">
+                                <summary class="moduleSummary">
+                                    <p><a href="./year.php?y=' . (int) $availableYear . '">Year ' . (int) $availableYear . '</a></p>
+                                </summary>
+                            </div>';
+                        }
                     }
                     else{
                         echo '<p class = "moduleMessage">
@@ -77,6 +81,46 @@
         </aside>
 
         <main class="content">
+            <?php
+                include("dbHandler.php");
+                /** @var PDO|null $dbHandler */
+                $announcement = null;
+                if ($dbHandler) {
+                    $announcementStmt = $dbHandler->prepare(
+                        "SELECT a.message, a.postedAt, u.username AS postedByName
+                         FROM announcements a
+                         JOIN users u ON u.userID = a.postedByUserID
+                         WHERE a.postedAt >= NOW() - INTERVAL 4 DAY
+                         ORDER BY a.postedAt DESC
+                         LIMIT 1;"
+                    );
+                    $announcementStmt->execute();
+                    $announcement = $announcementStmt->fetch(PDO::FETCH_ASSOC);
+                }
+            ?>
+            <?php if ($announcement): ?>
+                <div class="announcementBox">
+                    <h3>Announcement</h3>
+                    <p><?php echo nl2br(htmlspecialchars($announcement['message'])); ?></p>
+                    <p class="announcementMeta">
+                        Posted by <?php echo htmlspecialchars($announcement['postedByName']); ?>
+                        on <?php echo htmlspecialchars((new DateTime($announcement['postedAt']))->format('Y-m-d H:i')); ?>
+                    </p>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($role === 'admin' && $permission === 'admin'): ?>
+                <div class="announcementForm">
+                    <h3>Post Announcement</h3>
+                    <p class="announcementHint">Posting a new announcement replaces the current one. It disappears on its own after 4 days.</p>
+                    <form action="postAnnouncement.php" method="POST">
+                        <input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">
+                        <textarea name="message" id="message" rows="4" required></textarea>
+                        <button type="submit" class="saveBtn">Post Announcement</button>
+                    </form>
+                </div>
+            <?php endif; ?>
+
             <?php if ($role === 'admin'): ?>
                 <h1>Admin Panel</h1>
             <?php else: ?>
@@ -104,7 +148,7 @@
                 ?>
                 <h1>Library</h1>
                 <p class="libraryIntro">
-                    This is Caleb's academic portfolio for the NHL Stenden IT programme. Files here are only
+                    This is My academic portfolio for the NHL Stenden IT programme. Files here are only
                     visible if they've been explicitly shared with you &mdash; go to to the modueles in the
                     sidebar to browse through specific years.
                 </p>
@@ -122,6 +166,7 @@
                     <p class="moduleMessage">No files have been shared with you yet.</p>
                 <?php endif; ?>
             <?php endif; ?>
+
             <?php if($role === 'admin' && $permission === 'admin'){ ?>
                 <div class="tableContainer">
                     <table class="editPermissions">
@@ -131,6 +176,7 @@
                             <th>Permission</th>
                             <th>Edit Permission</th>
                             <th>Role</th>
+                            <th>Edit Role</th>
                             <th>Delete</th>
                         </tr> 
                             <?php    
@@ -164,6 +210,20 @@
                                                         </form>
                                                     </td>
                                                     <td class="allCells">' . htmlspecialchars($table["role"]) . '</td>
+                                                    <td class="allCells">
+                                                        <form action="updateRole.php" method="POST">
+                                                            <div class="editActionsContainer">
+                                                                <input type="hidden" name="userID" value="' . (int)$table["userID"] . '">
+                                                                <input type="hidden" name="csrf_token" value="' . $csrfToken . '">
+                                                                    <select name="setRole" id="setRole">
+                                                                        <option value="set" selected disabled>Set Role</option>
+                                                                        <option value="admin">Admin</option>
+                                                                        <option value="visitor">Visitor</option>
+                                                                    </select>
+                                                                <button type="submit" name="update" class="saveBtn">Save Changes</button>
+                                                            </div>
+                                                        </form>
+                                                    </td>
                                                     <td class="allCells">
                                                         <form action="delete.php" method="POST" class="deleteForm">
                                                             <input type="hidden" name="id" value="' . (int)$table["userID"] . '">

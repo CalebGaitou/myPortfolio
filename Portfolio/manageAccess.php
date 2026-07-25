@@ -26,7 +26,12 @@
         exit('File not found.');
     }
 
-    $stmt = $dbHandler->prepare("SELECT `fileID`, `title` FROM `files` WHERE `fileID` = :fileID;");
+    $stmt = $dbHandler->prepare(
+        "SELECT f.`fileID`, f.`title`, c.`yearNumber`
+         FROM `files` f
+         JOIN `categories` c ON c.`categoryID` = f.`categoryID`
+         WHERE f.`fileID` = :fileID;"
+    );
     $stmt->execute([':fileID' => $fileID]);
     $file = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -102,7 +107,7 @@
 
     <div class="centerWrap">
     <div class="uploadContainer">
-        <a href="year1.php" class="backLink">&larr; Back to Year 1</a>
+        <a href="year.php?y=<?php echo (int) $file['yearNumber']; ?>" class="backLink">&larr; Back to Year <?php echo (int) $file['yearNumber']; ?></a>
         <h1>Manage Access</h1>
         <p class="hint"><?php echo htmlspecialchars($file['title']); ?></p>
 

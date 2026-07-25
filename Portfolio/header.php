@@ -8,7 +8,7 @@
 ?>
 <nav class="topNav">
     <div class="navLeft">
-        <span class="welcome">Welcome, <strong><?php echo $headerUsername; ?></strong><?php echo $headerTagline; ?></span>
+        <span class="welcome">Welcome, dear <strong><?php echo $headerUsername; ?></strong><?php echo $headerTagline; ?></span>
         <a href="logout.php" class="btnLogout">Log Out</a>
     </div>
     <?php if ($headerShowSearch): ?>
