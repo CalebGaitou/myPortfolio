@@ -131,6 +131,13 @@
         linear-gradient(135deg, #5a1f2e, #1d1418 70%);
 }
 
+.projectBannerWinnestClient {
+    background:
+        radial-gradient(circle at 15% 15%, rgba(198, 63, 95, 0.55), transparent 55%),
+        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.1), transparent 40%),
+        linear-gradient(135deg, #3d1520, #1a1215 75%);
+}
+
 .projectBannerCircle {
     background:
         radial-gradient(circle at 80% 30%, transparent 28px, rgba(255, 255, 255, 0.12) 29px, transparent 31px),
