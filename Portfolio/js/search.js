@@ -4,11 +4,24 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    const items = document.querySelectorAll('[data-search]');
+    const noResults = document.querySelector('.noResults');
+
     input.addEventListener('input', () => {
         const query = input.value.trim().toLowerCase();
-        document.querySelectorAll('[data-search]').forEach((item) => {
-            const text = item.getAttribute('data-search') || item.textContent;
-            item.style.display = text.toLowerCase().includes(query) ? '' : 'none';
+        let visible = 0;
+
+        items.forEach((item) => {
+            const text = (item.getAttribute('data-search') + ' ' + item.textContent).toLowerCase();
+            const match = text.includes(query);
+            item.style.display = match ? '' : 'none';
+            if (match) {
+                visible++;
+            }
         });
+
+        if (noResults) {
+            noResults.hidden = visible > 0;
+        }
     });
 });

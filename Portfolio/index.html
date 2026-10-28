@@ -3,43 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caleb Gaïtou — Portfolio</title>
+    <meta name="description" content="Academic portfolio of Caleb Gaïtou, Information Technology student at NHL Stenden University of Applied Sciences in Emmen.">
+    <meta name="theme-color" content="#121212">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Caleb Gaïtou — Portfolio">
+    <meta property="og:description" content="Coursework, projects and reflections from my IT studies at NHL Stenden.">
+    <meta property="og:image" content="https://calebgaitou.github.io/myPortfolio/Portfolio/Files/Personal/caleb-profile.jpg">
     <link rel="stylesheet" href="./Css/variables.css">
     <link rel="stylesheet" href="./Css/header.css">
     <link rel="stylesheet" href="./Css/web.css">
-    <title>Portfolio</title>
 </head>
 
 <body class="appleDark">
-    <nav class="topNav">
+    <header class="topNav">
         <div class="navLeft">
-            <span class="welcome">Welcome to my <strong>Portfolio</strong></span>
+            <a href="index.html" class="welcome">Welcome to my <strong>Portfolio</strong></a>
         </div>
         <div class="navCenter">
-            <input type="text" id="searchBar" placeholder="Search Portfolio..." class="searchBar">
+            <input type="search" id="searchBar" placeholder="Search Portfolio..." class="searchBar" aria-label="Search this page">
         </div>
-    </nav>
+    </header>
 
     <div class="mainContainer">
         <aside class="sidebar">
-            <div class="sidebarSection">
+            <nav class="sidebarSection" aria-label="Site">
+                <h3>Navigation</h3>
                 <ul class="sidebarList">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="index.html" aria-current="page">Home</a></li>
                     <li><a href="about.html">About Me</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
                 </ul>
 
                 <h3>Modules</h3>
-                <div class="moduleDetails">
-                    <summary class="moduleSummary">
-                        <p><a href="year1.html">Year 1</a></p>
-                    </summary>
-                </div>
-                <div class="moduleDetails">
-                    <summary class="moduleSummary">
-                        <p><a href="year2.html">Year 2</a></p>
-                    </summary>
-                </div>
-            </div>
+                <ul class="sidebarList">
+                    <li><a href="year1.html">Year 1</a></li>
+                    <li><a href="year2.html">Year 2</a></li>
+                </ul>
+            </nav>
         </aside>
 
         <main class="content">
@@ -50,7 +52,7 @@
             </p>
 
             <div class="gridContainer">
-                <a class="card" href="year1.html" data-search="year 1 oop web development professional skills project innovate">
+                <a class="card" href="year1.html" data-search="year 1 oop java web development professional skills project innovate">
                     <span class="cardTitle">Year 1</span>
                     <span class="cardMeta">OOP, Web Development, Professional Skills, Project Innovate</span>
                 </a>
@@ -58,7 +60,7 @@
                     <span class="cardTitle">Year 2</span>
                     <span class="cardMeta">Software Quality — coming soon</span>
                 </a>
-                <a class="card" href="about.html" data-search="about caleb gaitou education">
+                <a class="card" href="about.html" data-search="about caleb gaitou education skills contact">
                     <span class="cardTitle">About Me</span>
                     <span class="cardMeta">Education, skills, and contact</span>
                 </a>
@@ -67,6 +69,7 @@
                     <span class="cardMeta">Current schedule</span>
                 </a>
             </div>
+            <p class="noResults" hidden>Nothing matches that search.</p>
         </main>
     </div>
     <script src="./js/search.js"></script>

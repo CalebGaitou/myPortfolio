@@ -3,32 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Year 1 — Caleb Gaïtou Portfolio</title>
+    <meta name="description" content="Year 1 coursework from NHL Stenden IT: OOP, Web Development, Professional Skills and Project Innovate.">
+    <meta name="theme-color" content="#121212">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./Css/variables.css">
     <link rel="stylesheet" href="./Css/header.css">
     <link rel="stylesheet" href="./Css/web.css">
-    <title>Year 1 - Portfolio</title>
 </head>
 
 <body class="appleDark">
-    <nav class="topNav">
+    <header class="topNav">
         <div class="navLeft">
-            <span class="welcome">Welcome to my <strong>Portfolio</strong></span>
+            <a href="index.html" class="welcome">Welcome to my <strong>Portfolio</strong></a>
         </div>
         <div class="navCenter">
-            <input type="text" id="searchBar" placeholder="Search Portfolio..." class="searchBar">
+            <input type="search" id="searchBar" placeholder="Search Portfolio..." class="searchBar" aria-label="Search this page">
         </div>
-    </nav>
+    </header>
 
     <div class="mainContainer">
         <aside class="sidebar">
-            <div class="sidebarSection">
+            <nav class="sidebarSection" aria-label="Site">
                 <h3>Navigation</h3>
                 <ul class="sidebarList">
-                    <li><a href="index.html">&larr; Back to Portfolio</a></li>
-                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Me</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
                 </ul>
-            </div>
+
+                <h3>Modules</h3>
+                <ul class="sidebarList">
+                    <li><a href="year1.html" aria-current="page">Year 1</a></li>
+                    <li><a href="year2.html">Year 2</a></li>
+                </ul>
+            </nav>
         </aside>
 
         <main class="content">
@@ -40,39 +49,40 @@
                     <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Category</th>
-                            <th>View</th>
+                            <th>Module</th>
+                            <th>File</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr data-search="oop java object oriented programming">
-                            <td class="allCells">OOP 1 — Java file</td>
+                        <tr data-search="oop 1 java object oriented programming person class">
+                            <td class="allCells">Person class</td>
                             <td class="allCells">OOP 1</td>
-                            <td class="allCells"><a href="./Files/Year1/Oop1/06be96acabc43c01bca832e84037abaa.java">View</a></td>
+                            <td class="allCells"><a href="./Files/Year1/Oop1/Person.java">View</a> <span class="fileMeta">Java</span></td>
                         </tr>
-                        <tr data-search="web development ppf png">
-                            <td class="allCells">Web Development — PPF</td>
-                            <td class="allCells">WebDev</td>
-                            <td class="allCells"><a href="./Files/Year1/WebDev/PPF.png">View</a></td>
+                        <tr data-search="web development ppf png image">
+                            <td class="allCells">PPF</td>
+                            <td class="allCells">Web Development</td>
+                            <td class="allCells"><a href="./Files/Year1/WebDev/PPF.png">View</a> <span class="fileMeta">PNG</span></td>
                         </tr>
-                        <tr data-search="professional skills zip">
-                            <td class="allCells">Professional Skills — file 1</td>
-                            <td class="allCells">Professional Skills</td>
-                            <td class="allCells"><a href="./Files/Year1/ProfessionalSkills/5f50c6b3048ee324f8f2f63e337be775.zip">Download</a></td>
-                        </tr>
-                        <tr data-search="professional skills zip">
-                            <td class="allCells">Professional Skills — file 2</td>
-                            <td class="allCells">Professional Skills</td>
-                            <td class="allCells"><a href="./Files/Year1/ProfessionalSkills/811e9194211899c07e9d8a6ec05d1086.zip">Download</a></td>
-                        </tr>
-                        <tr data-search="project innovate docx">
+                        <tr data-search="project innovate code of conduct team it-1a docx word">
+                            <td class="allCells">Code of Conduct — Team IT-1A</td>
                             <td class="allCells">Project Innovate</td>
-                            <td class="allCells">Project Innovate</td>
-                            <td class="allCells"><a href="./Files/Year1/ProjectInnovate/60b46056c8ab1fad26527232ba7fcf40.docx">Download</a></td>
+                            <td class="allCells"><a href="./Files/Year1/ProjectInnovate/code-of-conduct-team-it-1a.docx" download>Download</a> <span class="fileMeta">Word, 52 KB</span></td>
+                        </tr>
+                        <tr data-search="professional skills semester 1 hand-in handin zip edumundo communication">
+                            <td class="allCells">Semester 1 hand-in</td>
+                            <td class="allCells">Professional Skills</td>
+                            <td class="allCells"><a href="./Files/Year1/ProfessionalSkills/professional-skills-semester-1-handin.zip" download>Download</a> <span class="fileMeta">ZIP, 68 MB</span></td>
+                        </tr>
+                        <tr data-search="professional skills end of year portfolio final interview feedback meetings zip">
+                            <td class="allCells">End-of-year portfolio</td>
+                            <td class="allCells">Professional Skills</td>
+                            <td class="allCells"><a href="./Files/Year1/ProfessionalSkills/professional-skills-end-of-year-portfolio.zip" download>Download</a> <span class="fileMeta">ZIP, 14 MB</span></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            <p class="noResults" hidden>Nothing matches that search.</p>
         </main>
     </div>
     <script src="./js/search.js"></script>

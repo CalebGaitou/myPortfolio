@@ -34,28 +34,6 @@ a {
     overflow-y: auto;
 }
 
-/* ─── RESPONSIVE ────────────────────────────────────────── */
-
-@media (max-width: 800px) {
-    body {
-        height: auto;
-        min-height: 100vh;
-    }
-
-    .mainContainer {
-        flex-direction: column;
-        overflow: visible;
-    }
-
-    .sidebar {
-        width: auto;
-    }
-
-    .content {
-        padding: 20px;
-    }
-}
-
 /* ─── SIDEBAR ───────────────────────────────────────────── */
 
 .sidebar {
@@ -117,6 +95,29 @@ summary::-webkit-details-marker {
 summary:hover {
     background: rgba(198, 63, 95, 0.1);
     color: white;
+}
+
+.sidebar li a[aria-current="page"] {
+    background: rgba(198, 63, 95, 0.15);
+    color: white;
+}
+
+.sidebarList + h3 {
+    margin-top: 24px;
+}
+
+.welcome {
+    color: var(--textColor);
+}
+
+.welcome:hover strong {
+    color: var(--accentColor);
+}
+
+a:focus-visible,
+.searchBar:focus-visible {
+    outline: 2px solid var(--accentColor);
+    outline-offset: 2px;
 }
 
 details ul {
@@ -329,7 +330,6 @@ details ul li a {
     border-radius: 12px;
     color: rgb(255, 255, 255);
     overflow: hidden;
-    min-width: 700px;
 }
 
 .filesTable th {
@@ -357,6 +357,19 @@ details ul li a {
 
 .filesTable a:hover {
     text-decoration: underline;
+}
+
+.fileMeta {
+    display: block;
+    margin-top: 4px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.45);
+    white-space: nowrap;
+}
+
+.noResults {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
 }
 
 .editPermissions th:nth-child(1),
@@ -441,4 +454,58 @@ details ul li a {
 
 .deleteBtn:hover {
     background: rgba(255, 69, 96, 0.1);
+}
+/* ─── RESPONSIVE ────────────────────────────────────────── */
+/* Kept at the end so these rules win over the desktop ones above. */
+
+@media (max-width: 800px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .mainContainer {
+        flex-direction: column;
+        overflow: visible;
+    }
+
+    .sidebar {
+        width: auto;
+        margin: 12px 12px 0;
+        padding: 12px 14px;
+    }
+
+    .sidebar h3 {
+        display: none;
+    }
+
+    .sidebarList {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 8px;
+    }
+
+    .sidebarList + h3 + .sidebarList {
+        margin-top: 4px;
+    }
+
+    .sidebar li a {
+        padding: 6px 10px;
+    }
+
+    .content {
+        padding: 20px 16px;
+    }
+}
+
+@media (max-width: 560px) {
+    .filesTable th,
+    .filesTable td {
+        padding: 12px 8px;
+        font-size: 0.85em;
+    }
+
+    .filesTable th {
+        letter-spacing: 0.5px;
+    }
 }

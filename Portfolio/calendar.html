@@ -3,28 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar — Caleb Gaïtou Portfolio</title>
+    <meta name="description" content="Caleb Gaïtou's current schedule.">
+    <meta name="theme-color" content="#121212">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./Css/variables.css">
     <link rel="stylesheet" href="./Css/header.css">
     <link rel="stylesheet" href="./Css/web.css">
-    <title>Calendar - Portfolio</title>
 </head>
 
 <body class="appleDark">
-    <nav class="topNav">
+    <header class="topNav">
         <div class="navLeft">
-            <span class="welcome">Welcome to my <strong>Portfolio</strong></span>
+            <a href="index.html" class="welcome">Welcome to my <strong>Portfolio</strong></a>
         </div>
-    </nav>
+    </header>
 
     <div class="mainContainer">
         <aside class="sidebar">
-            <div class="sidebarSection">
+            <nav class="sidebarSection" aria-label="Site">
                 <h3>Navigation</h3>
                 <ul class="sidebarList">
-                    <li><a href="index.html">&larr; Back to Portfolio</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Me</a></li>
+                    <li><a href="calendar.html" aria-current="page">Calendar</a></li>
                 </ul>
-            </div>
+
+                <h3>Modules</h3>
+                <ul class="sidebarList">
+                    <li><a href="year1.html">Year 1</a></li>
+                    <li><a href="year2.html">Year 2</a></li>
+                </ul>
+            </nav>
         </aside>
 
         <main class="content">
@@ -34,9 +44,8 @@
             <div class="calendarEmbed">
                 <iframe
                     src="https://outlook.office365.com/owa/calendar/c8c9903190b54e469d05b934584c07ef@student.nhlstenden.com/1d67b6a9ca3741889c384cdd14fe582414789045714294495415/calendar.html"
-                    frameborder="0"
-                    scrolling="no"
                     title="Caleb's schedule"
+                    loading="lazy"
                 ></iframe>
             </div>
         </main>
