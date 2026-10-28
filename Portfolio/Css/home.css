@@ -1,0 +1,225 @@
+/* ─── HOME: HERO ────────────────────────────────────────── */
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 32px;
+    margin-bottom: 48px;
+    background: var(--glassBg);
+    border: 1px solid var(--glassBorder);
+    border-radius: 16px;
+}
+
+.heroPhoto {
+    flex-shrink: 0;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(198, 63, 95, 0.6);
+}
+
+.heroKicker {
+    margin: 0 0 8px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accentColor);
+}
+
+.hero h1 {
+    margin: 0 0 12px;
+    font-size: 36px;
+    line-height: 1.15;
+}
+
+.heroLead {
+    margin: 0 0 22px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 560px;
+}
+
+.heroActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 9px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--glassBorder);
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(198, 63, 95, 0.5);
+}
+
+.btnPrimary {
+    background: var(--accentColor);
+    border-color: var(--accentColor);
+    color: #fff;
+}
+
+.btnPrimary:hover {
+    background: rgb(178, 52, 83);
+    border-color: rgb(178, 52, 83);
+}
+
+/* ─── HOME: SECTIONS ────────────────────────────────────── */
+
+.homeSection {
+    margin-bottom: 48px;
+    scroll-margin-top: 20px;
+}
+
+.sectionHeading {
+    margin: 0 0 18px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+/* ─── HOME: PROJECTS ────────────────────────────────────── */
+
+.projectGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glassBorder);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.projectCard:hover {
+    border-color: rgba(198, 63, 95, 0.5);
+    transform: translateY(-3px);
+}
+
+/* Banner: swap for a screenshot later with
+   <img class="projectShot" src="./Files/Projects/winnest.png" alt="..."> */
+.projectBanner {
+    height: 120px;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px 20px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.projectBannerWinnest {
+    background:
+        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.12), transparent 45%),
+        linear-gradient(135deg, #5a1f2e, #1d1418 70%);
+}
+
+.projectBannerCircle {
+    background:
+        radial-gradient(circle at 80% 30%, transparent 28px, rgba(255, 255, 255, 0.12) 29px, transparent 31px),
+        radial-gradient(circle at 80% 30%, transparent 52px, rgba(255, 255, 255, 0.08) 53px, transparent 55px),
+        linear-gradient(135deg, #2b2030, #161214 70%);
+}
+
+.projectShot {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    border-bottom: 1px solid var(--glassBorder);
+}
+
+.projectBody {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.projectBody > .projectLabel {
+    margin: 0 0 6px;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--accentColor);
+}
+
+.projectBody h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.projectBody > p {
+    margin: 0 0 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.projectPoints {
+    margin: 0 0 18px;
+    padding-left: 18px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.tagList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: auto 0 0;
+}
+
+.tagList li {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glassBorder);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ─── HOME: PHONE ───────────────────────────────────────── */
+
+@media (max-width: 640px) {
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 22px;
+    }
+
+    .heroPhoto {
+        width: 96px;
+        height: 96px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .projectGrid {
+        grid-template-columns: 1fr;
+    }
+}
