@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Css/variables.css">
+    <link rel="stylesheet" href="./Css/header.css">
+    <link rel="stylesheet" href="./Css/web.css">
+    <title>Year 1 - Portfolio</title>
+</head>
+
+<body class="appleDark">
+    <nav class="topNav">
+        <div class="navLeft">
+            <span class="welcome">Welcome to my <strong>Portfolio</strong></span>
+        </div>
+        <div class="navCenter">
+            <input type="text" id="searchBar" placeholder="Search Portfolio..." class="searchBar">
+        </div>
+    </nav>
+
+    <div class="mainContainer">
+        <aside class="sidebar">
+            <div class="sidebarSection">
+                <h3>Navigation</h3>
+                <ul class="sidebarList">
+                    <li><a href="index.html">&larr; Back to Portfolio</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="content">
+            <h1>Year 1</h1>
+            <p class="libraryIntro">Coursework and project files from year 1.</p>
+
+            <div class="tableContainer">
+                <table class="filesTable">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-search="oop java object oriented programming">
+                            <td class="allCells">OOP 1 — Java file</td>
+                            <td class="allCells">OOP 1</td>
+                            <td class="allCells"><a href="./Files/Year1/Oop1/06be96acabc43c01bca832e84037abaa.java">View</a></td>
+                        </tr>
+                        <tr data-search="web development ppf png">
+                            <td class="allCells">Web Development — PPF</td>
+                            <td class="allCells">WebDev</td>
+                            <td class="allCells"><a href="./Files/Year1/WebDev/PPF.png">View</a></td>
+                        </tr>
+                        <tr data-search="professional skills zip">
+                            <td class="allCells">Professional Skills — file 1</td>
+                            <td class="allCells">Professional Skills</td>
+                            <td class="allCells"><a href="./Files/Year1/ProfessionalSkills/5f50c6b3048ee324f8f2f63e337be775.zip">Download</a></td>
+                        </tr>
+                        <tr data-search="professional skills zip">
+                            <td class="allCells">Professional Skills — file 2</td>
+                            <td class="allCells">Professional Skills</td>
+                            <td class="allCells"><a href="./Files/Year1/ProfessionalSkills/811e9194211899c07e9d8a6ec05d1086.zip">Download</a></td>
+                        </tr>
+                        <tr data-search="project innovate docx">
+                            <td class="allCells">Project Innovate</td>
+                            <td class="allCells">Project Innovate</td>
+                            <td class="allCells"><a href="./Files/Year1/ProjectInnovate/60b46056c8ab1fad26527232ba7fcf40.docx">Download</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="./js/search.js"></script>
+</body>
+</html>

@@ -37,4 +37,3 @@ error_log
 # Claude
 .claude/
 CLAUDE.local.md
-*.zip

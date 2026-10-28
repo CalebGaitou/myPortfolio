@@ -350,6 +350,15 @@ details ul li a {
     font-size: 0.9em;
 }
 
+.filesTable a {
+    color: var(--accentColor);
+    text-decoration: none;
+}
+
+.filesTable a:hover {
+    text-decoration: underline;
+}
+
 .editPermissions th:nth-child(1),
 .editPermissions td:nth-child(1) { width: 14%; }
 

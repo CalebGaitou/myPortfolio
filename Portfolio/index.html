@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Css/variables.css">
+    <link rel="stylesheet" href="./Css/header.css">
+    <link rel="stylesheet" href="./Css/web.css">
+    <title>Portfolio</title>
+</head>
+
+<body class="appleDark">
+    <nav class="topNav">
+        <div class="navLeft">
+            <span class="welcome">Welcome to my <strong>Portfolio</strong></span>
+        </div>
+        <div class="navCenter">
+            <input type="text" id="searchBar" placeholder="Search Portfolio..." class="searchBar">
+        </div>
+    </nav>
+
+    <div class="mainContainer">
+        <aside class="sidebar">
+            <div class="sidebarSection">
+                <ul class="sidebarList">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                </ul>
+
+                <h3>Modules</h3>
+                <div class="moduleDetails">
+                    <summary class="moduleSummary">
+                        <p><a href="year1.html">Year 1</a></p>
+                    </summary>
+                </div>
+                <div class="moduleDetails">
+                    <summary class="moduleSummary">
+                        <p><a href="year2.html">Year 2</a></p>
+                    </summary>
+                </div>
+            </div>
+        </aside>
+
+        <main class="content">
+            <h1>Library</h1>
+            <p class="libraryIntro">
+                This is my academic portfolio for the NHL Stenden IT programme. Browse years from the
+                sidebar, or open a module below.
+            </p>
+
+            <div class="gridContainer">
+                <a class="card" href="year1.html" data-search="year 1 oop web development professional skills project innovate">
+                    <span class="cardTitle">Year 1</span>
+                    <span class="cardMeta">OOP, Web Development, Professional Skills, Project Innovate</span>
+                </a>
+                <a class="card" href="year2.html" data-search="year 2 software quality">
+                    <span class="cardTitle">Year 2</span>
+                    <span class="cardMeta">Software Quality — coming soon</span>
+                </a>
+                <a class="card" href="about.html" data-search="about caleb gaitou education">
+                    <span class="cardTitle">About Me</span>
+                    <span class="cardMeta">Education, skills, and contact</span>
+                </a>
+                <a class="card" href="calendar.html" data-search="calendar schedule outlook">
+                    <span class="cardTitle">Calendar</span>
+                    <span class="cardMeta">Current schedule</span>
+                </a>
+            </div>
+        </main>
+    </div>
+    <script src="./js/search.js"></script>
+</body>
+</html>
